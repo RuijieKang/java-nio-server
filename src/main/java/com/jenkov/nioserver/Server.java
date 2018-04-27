@@ -8,12 +8,15 @@ import java.util.concurrent.ArrayBlockingQueue;
  * Created by jjenkov on 24-10-2015.
  */
 public class Server {
+    /*Acceptor configurations*/
     private int tcpPort;
-    
-    private Queue socketQueue;//Exchange the connected socket between acceptor and processor threads
-    
+
+    /*Processor configurations*/
     private IMessageReaderFactory messageReaderFactory;
     private IMessageProcessor     messageProcessor;
+
+    //Exchange the connected sockets between acceptor and processor threads
+    private Queue socketQueue;
 
     /*Configuration method*/
     public Server(int tcpPort, int capacity, IMessageReaderFactory messageReaderFactory, IMessageProcessor messageProcessor) {
